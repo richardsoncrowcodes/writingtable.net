@@ -1,0 +1,22 @@
+# HELP AREA SECTION
+title: How Will It Help Me?
+color: "#dac4b3"
+id: help
+text: | 
+    Since March 2020, scores of writers have joined me at the Writing Table. They have completed everything from dissertations and books to devotionals and short articles, blogs and magazine features, sermons and reports, poetry and study guides. The proof is in the success of everyone has made the commitment to show up for themselves and their writing on a regular basis.
+
+    Sure you can write on your own. You're probably already doing that. But what you'll find is by doing it collaboratively and in community, your commitment and your accomplishments will both grow.
+
+image: /assets/img/joins.webp
+image_on_left: true
+
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/
+
+

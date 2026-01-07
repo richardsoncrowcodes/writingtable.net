@@ -1,0 +1,15 @@
+title: "Welcome to The Writing Table!"
+subtitle: "Join our community of writers building solid writing habits together."
+button_text: Get Free Friday Links
+id: welcomeModal
+text: |
+    Sign up for #FreeWrite Fridays to try it out for free, or join our monthly or annual membership for unlimited access to all our writing sessions.
+formspree_id: "xxxx"
+color: "#f4f1ea"
+button: 
+  - text: Join the Writing Table Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join the Writing Table Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/

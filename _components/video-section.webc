@@ -1,0 +1,58 @@
+<style webc:scoped>
+    .video-section-container {
+        width: 100%;
+    }
+    .video-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        /* Menjaga aspek rasio 16:9 agar skor CLS Lighthouse bagus */
+        aspect-ratio: 16 / 9;
+        background-color: #000;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+
+    .video-description {
+        max-width: 750px;
+        margin: 2rem auto 0;
+        color: #444;
+    }
+</style>
+
+<section webc:root="override" 
+         :id="section_id" 
+         class="py-5" 
+         :style="`background-color: ${color === 'white' ? '#ffffff' : color}`">
+    
+    <div class="container text-center">
+        <h2 class="display-6 mb-4 text-white" webc:if="title" @raw="title"></h2>
+
+        <div class="video-wrapper">
+            <video 
+                controls 
+                :poster="cover" 
+                preload="metadata" 
+                playsinline
+                :aria-label="title">
+                <source :src="media" type="video/mp4">
+                <p>
+                    Your browser doesn't support HTML5 video. 
+                    Here is a <a :href="media">link to the video</a> instead.
+                </p>
+            </video>
+        </div>
+
+        <div class="video-description lead text-white" webc:if="text" @raw="md(text)"></div>
+        
+    </div>
+</section>

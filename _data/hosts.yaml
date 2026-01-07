@@ -1,0 +1,32 @@
+# HOST SECTION FOR LIGHT AREA
+title: Meet Your Hosts
+id: "hosts"
+color: default
+
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/
+
+# Host List
+list: 
+
+  - title: Founder
+    name: Rev. Dr. Eileen Campbell-Reed
+    image: /assets/img/Eileen-Campbell-Reed-circle-design.png.webp
+    image_on_left: true
+    description: |
+      As founder and host of the Writing Table, Eileen Campbell-Reed brings more than a decade of coaching experience, working with academic writers, and now writers in many other professions, mostly ministry-related. She is delighted each week not only to host the space but to offer gentle encouragement, coaching, and reminders about the basic skills for the writing habits that we are all building. She wrote and edited much of Pastoral 
+      Imagination while hosting the Writing Table during the Covid-19 pandemic.
+
+  - title: Co-Host
+    name: Rev. Traci Smith
+    image: /assets/img/Traci-Smith-2048x1152.png.webp
+    image_on_left: false
+    description: |
+      We are so glad to welcome pastor, author and coach, Rev. Traci Smith to the Writing Table as an occasional coach. Traci is a widely recognized children's author, consultant, and friend. She has been a regular at the Writing Table for more several years, writing most all of her book, Faithful Families for Advent and Christmas. 
+      We are lucky to have Traci hosting occasionally at the Writing Table!

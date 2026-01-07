@@ -1,0 +1,39 @@
+<section webc:root="override" :id="section_id" 
+class="py-5"
+:style="`background-color: ${color === 'default' ? '#ffffff' : color}`"
+>
+    <div class="container">
+        <h2 class="display-5 text-center mb-5">
+            <a :href="metadata?.url" class="text-decoration-none text-dark" @raw="title"></a>
+        </h2>
+        
+        <div webc:for="person of list" 
+             :class="'row align-items-center g-4 mb-5 ' + (person.image_on_left ? '' : 'flex-row-reverse')">
+            
+            <div class="col-md-6 text-center">
+                <img :src="person.image" 
+                     :alt="person.name" 
+                     class="profile-image img-fluid" 
+                     style="max-width: 300px; height: 300px; object-fit:cover;
+                     border-radius: 50%;">
+            </div>
+            
+            <div class="col-md-6">
+                <h3 class="h2 mb-1" @raw="person.title"></h3>
+                <h4 class="h3 text-muted mb-3" @raw="person.name"></h4>
+                <div class="lead-text" @raw="md(person.description)"></div>
+            </div>
+        </div>
+
+        <div class="text-center p-3 mt-4">
+            <a webc:for="btn of button"
+               :href="btn.url" 
+               class="btn btn-lg ms-2 me-2 text-white" 
+               :style="`background-color: ${btn.color}`"
+               target="_blank" 
+               rel="noopener noreferrer"
+               @raw="btn.text">
+            </a>
+        </div>
+    </div>
+</section>

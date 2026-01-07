@@ -1,0 +1,24 @@
+title: "What Are #FreeWrite Fridays?"
+color: "#b95185"
+id: write
+
+text: | 
+      For more than two years, Eileen hosted the Writing Table for no charge. Completely free. Anyone could come to the Writing Table, receive encouragement and support from a writing coach, and share the table with others. What we learned since March of 2020 is that doing this kind of writing in a coworking space is something people need and want. It was something Eileen truly enjoys doing!
+
+      To continue to make it possible, it is time to offer the Writing Table as a service in exchange for very reasonable fee. But also we want people to be able to try it. With no charge. And sometimes people just want to write about once a week. To make all of that possible, the Writing Table on Fridays will remain free in 2024 and probably beyond. Use the sign up form below to get the weekly link!
+
+      We are calling this offering #FreeWrite Fridays. One of the greatest strategies when you're stuck in any writing project, is not to keep pressing on with the project. It is to stop and just simply free write. Put your fingers to the key or your hand to the pen on paper and just let whatever comes out come out. Many widely published authors use this strategy to get unstuck.
+
+      If what you need the writing table for is to get unstuck then by all means join us on Fridays and give it a try. You can write anything you like from free writing to poetry the most important magnum opus. There's no judgment at the writing table only support and cheering you on. You may find that you like it so much you want to come other days of the week. And that will be possible this year by joining monthly or annually.
+
+image: "https://placehold.co/600"
+image_on_left: false
+
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/

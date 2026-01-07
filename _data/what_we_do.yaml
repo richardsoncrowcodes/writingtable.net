@@ -1,0 +1,23 @@
+# WHAT WE DO SECTION FOR DARK AREA
+title: What Do We Do When We Gather at the Writing Table?
+id: wedo
+color: "#5396a4"
+image: https://placehold.co/600
+image_on_left: false
+text: |
+    We write in brief sessions. Professor 
+    [Robert Boice studied over a thousand academic writers](https://www.amazon.com/Advice-Faculty-Members-Robert-Boice/dp/0205281591) across  30 years. 
+    In his research he learned that writing briefly and daily, holding back before writing and writing before ready, are strategies that help one to build a solid and lasting writing habit. Planning small steps and letting others do some of the work are also keys to a productive writing habit. The best writers are not binge writers (oh there are exceptions, but don’t try to be one!). They are people who see writing as part of their everyday work and keep plugging away. They learn to write without excruciating pain but instead with mild enjoyment.
+
+    So we write in small chunks ([we like to use the pomodoro technique](https://todoist.com/productivity-methods/pomodoro-technique)) or even for longer stretches, but with breaks. We write humanely. And by doing the work simultaneously in community, we reinforce how showing up and taking time to breathe, setting intentions and sharing our strategies, make everyone’s habit stronger.
+
+    We keep the same basic structure of timing in every writing table. Beginning and ending on time, taking a break, and sharing our strategies (and struggles) make mutual encouragement part of each gathering.
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/
+

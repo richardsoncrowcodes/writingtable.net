@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <site-seo webc:if="metadata" :@metadata="metadata"></site-seo>
+    <style @raw="getBundle('css')" webc:keep></style>
+    <style @raw="faStyles" webc:keep></style>
+</head>
+<body>
+<site-nav webc:if="navbar" :@navdata="navbar"></site-nav>
+<main @raw="content"></main>
+<site-footer 
+    webc:if="footer"
+    :@title="footer?.title"
+    :@text="footer?.text"
+    :@color="footer?.color"
+    :@contact="footer?.contact"
+    :@socials="footer?.socials"
+    :@copyrights="footer?.copyrights"> </site-footer>
+<modal-section
+    webc:if="modal"
+    :@section_id="modal?.id"
+    :@title="modal?.title"
+    :@subtitle="modal?.subtitle"
+    :@text="modal?.text"
+    :@color="modal?.color"
+    :@button_text="modal?.button_text"
+    :@formspree_id="modal?.formspree_id"
+    :@buttons="modal?.button">
+</modal-section>
+<script src="/assets/js/bs.js" webc:keep></script>
+<script src="/assets/js/modal.js" webc:keep></script>
+<script @raw="getBundle('js')" webc:keep></script>
+</body>
+</html>

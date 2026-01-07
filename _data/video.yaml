@@ -1,0 +1,8 @@
+# VIDEO SECTION
+title: Video 
+color: "#71b5c3"
+id: Videos
+text: | 
+    content about video.
+cover: /assets/img/joins.webp
+media: /assets/video/video.mp4

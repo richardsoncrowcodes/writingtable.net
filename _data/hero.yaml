@@ -1,0 +1,19 @@
+title: "What is the Writing Table?"
+id: hero
+bg_color: "#dac4b3"
+subtitle: "Enhance your writing practice through writing in communion"
+description: |
+      Writing Table is a space for books, dissertations, journal articles, 
+      fiction, non-fiction, creative writing, sermons, *journaling*, and more.
+history: | 
+      In the early **pandemic days**, students, pastors, professors, and authors 
+      were feeling a lot of stress on our writing and our lives. We needed a place to show up and be together in our work. We needed a community of practice. And so the Writing Table was born.
+image: "https://placehold.co/600"
+image_on_left: false
+button: 
+  - text: Join the Writing Table Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join the Writing Table Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/

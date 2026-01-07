@@ -1,0 +1,32 @@
+<style webc:scoped>
+    .bookshelf-container {
+        width: 100%;
+        min-height: 400px;
+        background: #fff;
+        border-radius: 25px;
+        padding: 2rem;
+        border: 1px solid #f0f0f0;
+    }
+    :host ::v-deep .bookshop-widget {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+    }
+</style>
+
+<section webc:root="override" :id="section_id" class="py-5" :style="`background-color: ${color}`">
+    <div class="container text-center">
+        <div class="mb-5">
+            <h2 class="display-6 fw-bold mb-3" webc:if="title" @raw="title"></h2>
+            <div class="lead text-muted mx-auto" style="max-width: 800px;" webc:if="subtitle" @raw="md(subtitle)"></div>
+        </div>
+
+        <div class="bookshelf-container">
+            <script 
+                webc:keep 
+                src="https://bookshop.org/widgets.js" 
+                data-type="list" 
+                :data-list-slug="list_slug">
+            </script>
+        </div>
+    </div>
+</section>

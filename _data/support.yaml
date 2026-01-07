@@ -1,0 +1,24 @@
+# SUPPORT SECTION FOR DARK AREA
+title: Need Extra Support for Your Writing Project?
+id: support
+color: "#5396a4"
+description: Eileen is currently available for new one-to-one coaching clients. She offers both coaching for planning your projects, and developmental coaching that offers you direct feedback on the writing itself.
+image: https://placehold.co/400
+image_on_left: false
+article: |
+    And when you make that commitment to yourself to get the direct support 
+    you need for your projects, you will also receive two, four, six, or eight 
+    months of membership at the Writing Table — depending on how many coaching 
+    sessions you choose. This is a great way to get layers of help and support 
+    for your work.[Visit the 3MMM shop to learn more about individual coaching options, which include membership at the Writing Table.](https://eileencampbellreed.org/product/coaching-writing-table/)
+     Or [explore the options for developmental coaching plus membership at the Writing Table!](https://eileencampbellreed.org/product/coaching-writing-table/)
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/
+
+

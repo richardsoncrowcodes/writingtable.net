@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top" aria-label="Main navigation">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/" :aria-label="navdata.nav.title + ' Home'">
+            <img webc:if="navdata.nav.logo" 
+          img :src="navdata.nav.logo" 
+                 :alt="navdata.nav.title" 
+                 height="40" 
+                 class="d-inline-block me-2">
+            
+            <span @raw="navdata.nav.title"></span>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" webc:for="link of navdata.nav.item">
+                    <a class="nav-link" :href="link.url" @raw="link.title"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

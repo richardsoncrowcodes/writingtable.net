@@ -1,0 +1,34 @@
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <h2 class="display-6 mb-4">Welcome to The Writing Table!</h2>
+                <p class="lead">Join our community of writers building solid writing habits together.</p>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script>
+class WelcomeModal extends HTMLElement {
+    connectedCallback() {
+        const modalDismissTime = 'welcomeModalDismissTime';
+        const fiveDaysInMs = 5 * 24 * 60 * 60 * 1000;
+        const lastDismissed = localStorage.getItem(modalDismissTime);
+        const now = new Date().getTime();
+
+        if (!lastDismissed || (now - parseInt(lastDismissed)) > fiveDaysInMs) {
+            const myModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
+            myModal.show();
+        }
+
+        document.getElementById('welcomeModal').addEventListener('hidden.bs.modal', () => {
+            localStorage.setItem(modalDismissTime, new Date().getTime().toString());
+        });
+    }
+}
+customElements.define("welcome-modal", WelcomeModal);
+</script>

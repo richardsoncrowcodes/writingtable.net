@@ -1,0 +1,94 @@
+<style webc:scoped>
+    footer {
+        color: rgba(255, 255, 255, 0.9);
+        padding: 5rem 0 2rem;
+    }
+    .footer-title {
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        color: #ffffff;
+    }
+    .footer-link {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .footer-link:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    .social-btn {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 8px 16px;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+    }
+    .social-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-3px);
+        color: #fff;
+    }
+    .copyright-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 4rem;
+        padding-top: 2rem;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    .social-btn svg {
+        width: 1.2em;
+        height: 1.2em;
+    }
+    .copyright-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 4rem;
+        padding-top: 2rem;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+</style>
+<footer webc:root="override" :style="`background-color: ${color}`">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <h3 class="h4 footer-title mb-3" @raw="title"></h3>
+                <p class="lead mb-4" @raw="text"></p>
+                
+                <div webc:if="contact">
+                    <p class="mb-1 text-white"><strong><span @raw="contact.title"></span>:</strong></p>
+                    <div webc:for="item of contact.list">
+                        <a :href="item.url" class="footer-link" @raw="item.text"></a>
+                    </div>
+                </div>
+            </div>
+<div class="col-lg-7" webc:if="socials">
+    <h3 class="h5 footer-title mb-4" @raw="socials.title"></h3>
+    <div class="d-flex flex-wrap gap-3">
+        <a webc:for="social of socials.list"
+           :href="social.url" 
+           class="social-btn"
+           target="_blank" 
+           rel="noopener noreferrer" 
+           :aria-label="social.title">
+            
+            <span @html="icon(social.icon.split(' ')[0], social.icon.split(' ')[1].replace('fa-', ''))"></span>
+            
+            <span @raw="social.title"></span>
+        </a>
+    </div>
+</div>
+        </div>
+
+       <div class="copyright-section text-center">
+            <p>&copy; <span @raw="copyrights"></span> | 
+            built with <a href="https://11ty.dev" target="_blank" rel="noopener noreferrer">11ty</a> | 
+            Maintained by <a href="https://www.adamdjbrett.com"  target="_blank" rel="noopener noreferrer">Adam DJ Brett</a>.</p>
+        </div>
+    </div>
+</footer>

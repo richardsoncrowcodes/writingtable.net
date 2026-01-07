@@ -1,0 +1,44 @@
+---
+permalink: /pretty-feed.xsl
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<xsl:stylesheet version="3.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:atom="http://www.w3.org/2005/Atom">
+  <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes"/>
+  <xsl:template match="/">
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+      <head>
+        <title><xsl:value-of select="atom:feed/atom:title"/> - RSS Feed</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <style type="text/css">
+          body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #333; }
+          .alert { background: #f0f7ff; border: 1px solid #0070f3; padding: 1rem; border-radius: 8px; margin-bottom: 2rem; }
+          article { border-bottom: 1px solid #eee; padding: 1.5rem 0; }
+          h1 { color: #111; }
+          h2 a { color: #0070f3; text-decoration: none; }
+          .meta { color: #666; font-size: 0.9rem; }
+        </style>
+      </head>
+      <body>
+        <div class="alert">
+          <strong>This is an RSS Feed.</strong> Subscribe by copying the URL into your news reader. 
+          Visit <a href="https://aboutfeeds.com">About Feeds</a> to learn more.
+        </div>
+        <header>
+          <h1><xsl:value-of select="atom:feed/atom:title"/></h1>
+          <p><xsl:value-of select="atom:feed/atom:subtitle"/></p>
+        </header>
+        <main>
+          <xsl:for-each select="atom:feed/atom:entry">
+            <article>
+              <h2><a href="{atom:link/@href}"><xsl:value-of select="atom:title"/></a></h2>
+              <div class="meta">Published on: <xsl:value-of select="substring(atom:updated, 1, 10)"/></div>
+            </article>
+          </xsl:for-each>
+        </main>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>

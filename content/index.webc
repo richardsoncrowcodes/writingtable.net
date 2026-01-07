@@ -1,0 +1,111 @@
+---
+layout: layouts/base.webc
+---
+
+<hero-section 
+    :@section_id="hero.id"
+    :@metadata="metadata"
+    :@title="hero.title"
+    :@bg_color="hero.bg_color"
+    :@subtitle="hero.subtitle"
+    :@description="hero.description"
+    :@history="hero.history"
+    :@image="hero.image"
+    :@image_on_left="hero.image_on_left"
+    :@button="hero.button">
+</hero-section>
+
+<hosts-section 
+    webc:if="hosts"
+    :@section_id="hosts?.id"
+    :@title="hosts?.title"
+    :@color="hosts?.color"
+    :@list="hosts?.list"
+    :@button="hosts?.button"
+    :@metadata="metadata">
+</hosts-section>
+
+<supports-section 
+    webc:if="support"
+    :@section_id="support?.id"
+    :@title="support?.title"
+    :@color="support?.color"
+    :@description="support?.description"
+    :@article="support?.article"
+    :@image="support?.image"
+    :@image_on_left="support?.image_on_left"
+    :@button="support?.button">
+</supports-section>
+
+<who-section 
+    webc:if="who"
+    :@section_id="who?.id"
+    :@title="who?.title"
+    :@color="who?.color"
+    :@text="who?.text"
+    :@image="who?.image"
+    :@image_on_left="who?.image_on_left"
+    :@button="who?.button">
+</who-section>
+
+<what-we-do-section 
+    webc:if="what_we_do"
+    :@section_id="what_we_do?.id"
+    :@title="what_we_do?.title"
+    :@color="what_we_do?.color"
+    :@text="what_we_do?.text"
+    :@image="what_we_do?.image"
+    :@image_on_left="what_we_do?.image_on_left"
+    :@button="what_we_do?.button">
+</what-we-do-section>
+
+<help-section 
+    webc:if="help"
+    :@section_id="help?.id"
+    :@title="help?.title"
+    :@color="help?.color"
+    :@text="help?.text"
+    :@image="help?.image"
+    :@image_on_left="help?.image_on_left"
+    :@button="help?.button"
+    :@button_book_shelf="help?.button_book_shelf">
+</help-section>
+
+<write-section 
+    webc:if="free_write"
+    :@section_id="free_write?.id"
+    :@title="free_write?.title"
+    :@color="free_write?.color"
+    :@text="free_write?.text"
+    :@image="free_write?.image"
+    :@image_on_left="free_write?.image_on_left"
+    :@button="free_write?.button">
+</write-section>
+
+<bookshelf-section 
+    webc:if="bookshelf"
+    :@section_id="bookshelf?.id"
+    :@title="bookshelf?.title"
+    :@subtitle="bookshelf?.subtitle"
+    :@color="bookshelf?.color"
+    :@list_slug="bookshelf?.list_slug">
+</bookshelf-section>
+
+<video-section 
+    webc:if="video"
+    :@section_id="video?.id"
+    :@title="video?.title"
+    :@text="video?.text"
+    :@cover="video?.cover"
+    :@media="video?.media"
+    :@color="video?.color">
+</video-section>
+
+
+<form-section 
+    webc:if="form"
+    :@section_id="form?.id"
+    :@title="form?.title"
+    :@subtitle="form?.subtitle"
+    :@color="form?.color">
+</form-section>

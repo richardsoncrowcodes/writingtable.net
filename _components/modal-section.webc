@@ -1,0 +1,92 @@
+<style webc:scoped>
+    .modal-content {
+        border-radius: 24px;
+        border: none;
+        overflow: hidden;
+    }
+    .modal-header .btn-close {
+        background-color: #fff;
+        border-radius: 50%;
+        padding: 0.8rem;
+        opacity: 0.8;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .form-control {
+        border-radius: 12px;
+        padding: 12px 15px;
+        border: 2px solid #eee;
+    }
+    .form-control:focus {
+        border-color: #b95185;
+        box-shadow: none;
+    }
+    .btn-submit-modal {
+        background-color: #4e393e;
+        color: white;
+        border-radius: 12px;
+        padding: 12px;
+        font-weight: 700;
+        transition: 0.3s;
+        border: none;
+    }
+    .btn-submit-modal:hover {
+        background-color: #3d2d31;
+        color: white;
+    }
+    /* Dynamic Button Style */
+    .btn-custom-modal {
+        border-radius: 12px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+        color: white;
+    }
+    .btn-custom-modal:hover {
+        filter: brightness(1.1);
+        transform: translateY(-2px);
+        color: white;
+    }
+</style>
+
+<div class="modal fade" :id="section_id" tabindex="-1" :aria-labelledby="section_id + 'Label'" aria-hidden="true" webc:root="override">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4 p-md-5">
+                <h2 class="display-6 fw-bold mb-3" :id="section_id + 'Label'" @raw="title"></h2>
+                <p class="lead text-muted mb-3" @raw="subtitle"></p>
+                <div class="mb-4" @raw="md(text)"></div>
+
+                <div class="card border-0" :style="`background-color: ${color}`">
+                    <div class="card-body p-4">
+                        <form :action="'https://formspree.io/f/' + formspree_id" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Name</label>
+                                <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label fw-bold">Email address</label>
+                                <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <button type="submit" class="btn btn-submit-modal w-100 mb-4" @raw="button_text"></button>
+                        </form>
+
+                        <div class="d-flex flex-wrap gap-2 justify-content-center" webc:if="buttons">
+                            <a webc:for="btn of buttons" 
+                               :href="btn.url" 
+                               class="btn btn-custom-modal px-4 py-2" 
+                               :style="`background-color: ${btn.color}`"
+                               target="_blank" 
+                               rel="noopener noreferrer"
+                               @raw="btn.text">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

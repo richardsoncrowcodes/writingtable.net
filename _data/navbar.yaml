@@ -1,0 +1,14 @@
+nav:
+ title: The Writing Table
+ logo: https://placehold.co/60
+ item: 
+   - title: About
+     url: "#hero"
+   - title: Hosts
+     url: "#hosts"
+   - title: "Who It's For"
+     url: "#who"
+   - title: What We Do
+     url: "#wedo"
+   - title: FreeWrite Fridays
+     url: "#write"

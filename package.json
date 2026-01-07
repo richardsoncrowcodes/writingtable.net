@@ -1,0 +1,38 @@
+{
+  "name": "writingtable.net",
+  "version": "1.0.21",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve --quiet",
+    "build": "cross-env NODE_ENV=production eleventy",
+    "debug": "DEBUG=Eleventy* eleventy --serve",
+    "clean": "rm -rf _site",
+    "prod": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/adamdjbrett/writingtable.net.git"
+  },
+  "keywords": [],
+  "author": "adamdjbrett <infog@adamdjbrett.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "homepage": "https://github.com/adamdjbrett/writingtable.net#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-navigation": "^1.0.5",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-brands-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "clean-css": "^5.3.3",
+    "html-minifier-terser": "^7.2.0",
+    "js-yaml": "^4.1.1",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
+  }
+}

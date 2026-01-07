@@ -1,0 +1,21 @@
+# WHO SECTION FOR LIGHT AREA
+title: Who Is It For?
+id: who
+color: white
+image: https://placehold.co/600
+image_on_left: true
+text: |
+    All kinds of people come to the Writing Table. Pastors who work on their sermons. Professors who are writing books. Graduate students are writing dissertations. Poets who are writing poetry. Authors who are writing articles and blogs. Dreamers who are writing down their dreams. Everyday people who want to put their ideas into the world come to the Writing Table. Anyone who wants to write for an hour can join us. We don't talk about what we're writing (unless you want to, then no one objects). We focus on strategies for building writing habits. Would like your writing to be something the more than an occasional effort? Do you like to complete a draft and have your writing published?
+
+    Then please join the writers and authors and students and preachers to strengthen and complete what you love to do.
+
+    That's one of my mentors and professors used to say to me, "I don't really love writing but I love having written." Thanks, Carolyn Blevins, for that truthful word. The best way to have written, is to start writing on a daily basis, or maybe you need three days a week or maybe you need one day a week. Wherever you are in building your habit, the Writing Table can be for you.
+
+# Button Section Setup
+button:
+  - text: Join Annually
+    color: "#71b5c3"
+    url: https://store.eileencampbellreed.org/product/writing-table-annual-membership/
+  - text: Join Monthly
+    color: "#b95185"
+    url: https://store.eileencampbellreed.org/product/writing-table-monthly-membership/

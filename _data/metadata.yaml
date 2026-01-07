@@ -1,0 +1,18 @@
+title: "The Writing Table"
+description: "Enhance your writing practice through writing in communion"
+
+language: en
+locale: en_US
+image: /assets/img/joins.webp
+favicon: /assets/img/joins.webp
+url: /
+
+metasocial:
+  facebook: https://www.facebook.com/
+  twitter: https://twitter.com/
+  tweet: "@user"
+
+author:
+  name: "Eileen Campbell-Reed"
+  email: "hello@eileencampbellreed.org"
+

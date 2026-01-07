@@ -1,0 +1,20 @@
+<section class="video-section py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-5" @raw="title" webc:if="title"></h2>
+        <div class="video-container shadow-lg rounded overflow-hidden">
+            <video controls class="w-100 d-block" :poster="poster">
+                <source :src="url" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video. 
+                   Here is a <a :href="url">link to the video</a> instead.</p>
+            </video>
+        </div>
+    </div>
+</section>
+
+<style webc:scoped>
+    .video-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #000;
+    }
+</style>

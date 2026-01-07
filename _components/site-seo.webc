@@ -1,0 +1,46 @@
+<title @raw="title || metadata.title"></title>
+
+<meta :content="title || metadata.title" property="og:title">
+<meta :content="title || metadata.title" name="twitter:title">
+<meta :content="title || metadata.title" name="title">
+<meta :content="title || metadata.title" property="og:site_name">
+
+<meta :content="description || metadata.description" name="description">
+<meta :content="description || metadata.description" property="facebook:description">
+<meta :content="description || metadata.description" property="og:description">
+<meta :content="description || metadata.description" name="twitter:description">
+
+<meta property="twitter:card" content="summary_large_image">
+<meta :content="image || metadata.image" name="twitter:image">
+<meta :content="image || metadata.image" name="facebook:image">
+<meta :content="image || metadata.image" name="og:image">
+
+<link :href="metadata.favicon" rel="icon" type="image/x-icon">
+<link rel="apple-touch-icon" :href="metadata.favicon">
+
+<meta :content="metadata.facebook" property="facebook:author">
+<meta :content="metadata.twitteruser" property="twitter:author">
+<meta :content="metadata.twitter" name="twitter:site">
+<meta property="og:type" content="website">
+
+<link rel="canonical" :href="canonical_url || (metadata.url + page.url)">
+<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" :title="metadata.title">
+
+<meta :content="metadata.language" name="language">
+<meta :content="metadata.locale" name="locale">
+<meta :content="metadata.locale" property="og:locale">
+
+<meta name="generator" :content="eleventy.generator">
+
+<script type="application/ld+json" webc:keep 
+    @raw="JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'description': metadata.description,
+        'headline': metadata.title + ' - ' + metadata.description,
+        'name': metadata.title,
+        'url': metadata.url + page.url
+    })">
+</script>
+<link rel="stylesheet" href="/assets/css/index.css" webc:keep>
+<link rel="stylesheet" href="/assets/css/main.css" webc:keep>
