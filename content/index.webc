@@ -3,16 +3,16 @@ layout: layouts/base.webc
 ---
 
 <hero-section 
-    :@section_id="hero.id"
+    :@section_id="hero?.id"
     :@metadata="metadata"
-    :@title="hero.title"
-    :@bg_color="hero.bg_color"
-    :@subtitle="hero.subtitle"
-    :@description="hero.description"
-    :@history="hero.history"
-    :@image="hero.image"
-    :@image_on_left="hero.image_on_left"
-    :@button="hero.button">
+    :@title="hero?.title"
+    :@bg_color="hero?.bg_color"
+    :@subtitle="hero?.subtitle"
+    :@description="hero?.description"
+    :@history="hero?.history"
+    :@image="hero?.image"
+    :@image_on_left="hero?.image_on_left"
+    :@button="hero?.button">
 </hero-section>
 
 <hosts-section 

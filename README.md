@@ -43,11 +43,22 @@ Need Help or have project ?? Contact Me
 └── eleventy.config.js # Zetta Core system configuration
 ```
 
+---
+
 ### How to
 
 + Update all your data on `_data/*.yaml`
 + Play with component on `_components`
 + Static or Public folder on `content/assets/*`
+
+---
+
+## Update Change Log
+
++ Update WEBC version
++ Move from `commonjs` to `module`
++ Update all from const to import
+
 
 ---
 

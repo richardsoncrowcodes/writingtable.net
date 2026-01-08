@@ -1,18 +1,18 @@
-const pluginWebc = require("@11ty/eleventy-plugin-webc");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
-const { EleventyRenderPlugin } = require("@11ty/eleventy");
-const yaml = require("js-yaml");
-const htmlmin = require("html-minifier-terser");
-const CleanCSS = require("clean-css");
-const { library, dom, config } = require('@fortawesome/fontawesome-svg-core');
-const fas = require('@fortawesome/free-solid-svg-icons');
-const fab = require('@fortawesome/free-brands-svg-icons');
-const markdownIt = require("markdown-it");
+import pluginWebc from "@11ty/eleventy-plugin-webc";
+import pluginRss from "@11ty/eleventy-plugin-rss";
+import { EleventyRenderPlugin } from "@11ty/eleventy";
+import yaml from "js-yaml";
+import htmlmin from "html-minifier-terser";
+import CleanCSS from "clean-css";
+import { library, dom, config } from '@fortawesome/fontawesome-svg-core';
+import * as fas from '@fortawesome/free-solid-svg-icons';
+import * as fab from '@fortawesome/free-brands-svg-icons';
+import markdownIt from "markdown-it";
 
 library.add(fas.fas, fab.fab); 
 config.autoAddCss = false;
 
-module.exports = function(eleventyConfig) {
+export default function(eleventyConfig) {
     eleventyConfig.addDataExtension("yaml", contents => yaml.load(contents));
     eleventyConfig.addGlobalData("faStyles", dom.css());
        
@@ -26,7 +26,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPlugin(pluginWebc, {
         components: [
             "_components/**/*.webc",
-            "npm:@11ty/is-land/*.webc"
+            "npm:@11ty/is-land/*.webc",
+            "npm:@11ty/eleventy-img/*.webc"
         ]
     });
 

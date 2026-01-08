@@ -1,39 +1,57 @@
 <section webc:root="override" :id="section_id" 
-class="py-5"
-:style="`background-color: ${color === 'default' ? '#ffffff' : color}`"
->
+    class="py-5"
+    :style="`background-color: ${color === 'default' ? '#ffffff' : color}`">
+    
     <div class="container">
-        <h2 class="display-5 text-center mb-5">
-            <a :href="metadata?.url" class="text-decoration-none text-dark" @raw="title"></a>
+        <h2 class="display-5 text-center mb-5" webc:if="title">
+            <a :href="metadata?.url || '#'" class="text-decoration-none text-dark" @raw="title"></a>
         </h2>
         
-        <div webc:for="person of list" 
-             :class="'row align-items-center g-4 mb-5 ' + (person.image_on_left ? '' : 'flex-row-reverse')">
+        <div webc:if="list" webc:for="person of list" 
+             :class="`row align-items-center g-4 mb-5 ${person.image_on_left ? '' : 'flex-row-reverse'}`">
             
             <div class="col-md-6 text-center">
                 <img :src="person.image" 
-                     :alt="person.name" 
-                     class="profile-image img-fluid" 
-                     style="max-width: 300px; height: 300px; object-fit:cover;
-                     border-radius: 50%;">
+                    :alt="person.name" 
+                    class="profile-image img-fluid" 
+                    width="300" 
+                    height="300" 
+                    loading="lazy" 
+                    style="aspect-ratio: 1 / 1; object-fit: cover;
+                     border-radius: 50%;`"
+                     loading="lazy">
             </div>
             
             <div class="col-md-6">
-                <h3 class="h2 mb-1" @raw="person.title"></h3>
-                <h4 class="h3 text-muted mb-3" @raw="person.name"></h4>
-                <div class="lead-text" @raw="md(person.description)"></div>
+                <h3 class="h2 mb-1" webc:if="person.title" @raw="person.title"></h3>
+                <h4 class="h3 text-muted mb-3" webc:if="person.name" @raw="person.name"></h4>
+                <div class="lead-text" webc:if="person.description" @raw="md(person.description)"></div>
             </div>
         </div>
 
-        <div class="text-center p-3 mt-4">
+        <div class="text-center p-3 mt-4" webc:if="button">
             <a webc:for="btn of button"
                :href="btn.url" 
                class="btn btn-lg ms-2 me-2 text-white" 
-               :style="`background-color: ${btn.color}`"
+               :style="`background-color: ${btn.color} !important`"
                target="_blank" 
                rel="noopener noreferrer"
-               @raw="btn.text">
+               @raw="btn.text"
+               webc:keep>
             </a>
         </div>
     </div>
 </section>
+
+<style webc:scoped>
+    .profile-image {
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+    .profile-image:hover {
+        transform: scale(1.02);
+    }
+    .lead-text p {
+        margin-bottom: 0;
+    }
+</style>

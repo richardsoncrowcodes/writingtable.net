@@ -8,79 +8,56 @@
         border-radius: 30px;
         box-shadow: 0 20px 50px rgba(0,0,0,0.05);
     }
-    :host ::v-deep #af-form-815829053 {
+
+    /* Solusi v0.4.0+: Kita targetkan ID form secara langsung tanpa ::v-deep 
+       karena WebC akan mengompilasi ini dengan hash yang tepat ke parent kontainer. */
+    #af-form-815829053 {
         border: none !important;
         background: transparent !important;
         max-width: 100% !important;
     }
-    :host ::v-deep #af-form-815829053 .af-body {
+
+    #af-form-815829053 .af-body {
         background: transparent !important;
         padding: 0 !important;
         font-family: inherit !important;
     }
-    :host ::v-deep #af-form-815829053 .af-body label.previewLabel {
+
+    #af-form-815829053 .af-body label.previewLabel {
         color: #333 !important;
-        font-family: inherit !important;
-        font-size: 14px !important;
         font-weight: 600 !important;
-        margin-bottom: 8px !important;
         text-transform: uppercase;
         letter-spacing: 0.5px;
     }
-    :host ::v-deep #af-form-815829053 .af-body input.text {
+
+    #af-form-815829053 .af-body input.text {
         border: 2px solid #eee !important;
         background-color: #fcfcfc !important;
         border-radius: 12px !important;
         padding: 12px 15px !important;
-        font-size: 16px !important;
-        color: #333 !important;
-        margin-bottom: 15px !important;
         transition: all 0.3s ease !important;
     }
 
-    :host ::v-deep #af-form-815829053 .af-body input.text:focus {
-        border-color: #b95185 !important; /* Warna brandingmu */
-        background-color: #fff !important;
-        box-shadow: 0 0 0 4px rgba(185, 81, 213, 0.1) !important;
+    #af-form-815829053 .af-body input.text:focus {
+        border-color: #b95185 !important;
+        box-shadow: 0 0 0 4px rgba(185, 81, 133, 0.1) !important;
     }
 
-    :host ::v-deep #af-form-815829053 .af-element-checkbox,
-    :host ::v-deep #af-form-815829053 .af-element-radio {
-        margin-bottom: 10px !important;
-        padding: 5px 0 !important;
-    }
-
-    :host ::v-deep #af-form-815829053 .af-body label.choice {
-        color: #555 !important;
-        font-size: 14px !important;
-        margin-left: 8px !important;
-    }
-
-    :host ::v-deep #af-form-815829053 .buttonContainer input.submit {
+    #af-form-815829053 .buttonContainer input.submit {
         width: 100% !important;
         background: #b95185 !important;
-        background-image: none !important;
         border-radius: 12px !important;
         padding: 18px !important;
         font-weight: 700 !important;
-        font-size: 18px !important;
-        margin-top: 20px !important;
-        cursor: pointer !important;
-        transition: 0.3s ease !important;
         box-shadow: 0 10px 20px rgba(185, 81, 133, 0.2) !important;
+        cursor: pointer !important;
     }
 
-    :host ::v-deep #af-form-815829053 .buttonContainer input.submit:hover {
-        transform: translateY(-2px) !important;
-        filter: brightness(1.1) !important;
-        box-shadow: 0 15px 25px rgba(185, 81, 133, 0.3) !important;
-    }
-
-    /* Hapus Header Gambar 5.png dan Junk lainnya */
-    :host ::v-deep #af-form-815829053 .af-header,
-    :host ::v-deep #af-form-815829053 .af-footer,
-    :host ::v-deep #af-form-815829053 img,
-    :host ::v-deep .af-attribution {
+    /* Sembunyikan elemen sampah dari AWeber */
+    #af-form-815829053 .af-header,
+    #af-form-815829053 .af-footer,
+    #af-form-815829053 img,
+    .af-attribution {
         display: none !important;
     }
 </style>

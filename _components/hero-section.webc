@@ -1,36 +1,41 @@
-<section :id="section_id" class="content-left"
-:style="'background-color:' + bg_color">
+<section webc:root="override" 
+         :id="section_id" 
+         class="content-left py-5" 
+         :style="`background-color: ${bg_color}`">
+    
     <div class="container">
-        <div :class="'row align-items-center g-4 ' + (image_on_left ? '' : 'flex-row-reverse')">
+        <div :class="`row align-items-center g-4 ${image_on_left ? '' : 'flex-row-reverse'}`">
             
             <div class="col-md-6">
- <img :src="image" 
-     :alt="title" 
-     class="section-image" 
-     fetchpriority="high"
-     style="width: 100%; height: auto; border-radius: 8px; display: block;"
-     width="800"
-     height="450"
-     decoding="async">
+                <img :src="image" 
+                     :alt="title" 
+                     class="section-image" 
+                     fetchpriority="high"
+                     :style="`width: 100%; height: auto; border-radius: 8px; display: block;`"
+                     width="800"
+                     height="450"
+                     decoding="async">
             </div>
             
             <div class="col-md-6 p-3">
                 <h1 class="display-4 mb-4">
-                <a class="inhe" :href="`${metadata?.url}`" @raw="title"></a>
+                    <a class="inhe" :href="metadata?.url || '#'" webc:if="title" @raw="title"></a>
                 </h1>
-                <p class="lead fw-bold" @raw="subtitle"></p>
                 
-                <div class="mb-4" @raw="md(description)"></div>
-                <div class="mb-4" @raw="md(history)"></div>
+                <p class="lead fw-bold" webc:if="subtitle" @raw="subtitle"></p>
                 
-                <div class="d-flex flex-wrap gap-3 mt-4">
+                <div class="mb-4" webc:if="description" @raw="md(description)"></div>
+                <div class="mb-4" webc:if="history" @raw="md(history)"></div>
+                
+                <div class="d-flex flex-wrap gap-3 mt-4" webc:if="button">
                     <a webc:for="btn of button"
                        :href="btn.url" 
                        class="btn btn-lg text-white" 
-                       :style="'background-color:' + btn.color"
+                       :style="`background-color: ${btn.color} !important`"
                        target="_blank" 
                        rel="noopener noreferrer"
-                       @raw="btn.text">
+                       @raw="btn.text"
+                       webc:keep>
                     </a>
                 </div>
             </div>
@@ -38,3 +43,17 @@
         </div>
     </div>
 </section>
+
+<style webc:scoped>
+    .inhe {
+        text-decoration: none;
+        color: inherit;
+    }
+    .inhe:hover {
+        opacity: 0.8;
+    }
+    .section-image {
+        object-fit: cover;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+</style>

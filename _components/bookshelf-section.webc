@@ -7,7 +7,8 @@
         padding: 2rem;
         border: 1px solid #f0f0f0;
     }
-    :host ::v-deep .bookshop-widget {
+    .bookshelf-container .bookshop-widget,
+    :host .bookshop-widget {
         margin: 0 auto !important;
         max-width: 100% !important;
     }
@@ -25,7 +26,7 @@
                 webc:keep 
                 src="https://bookshop.org/widgets.js" 
                 data-type="list" 
-                :data-list-slug="list_slug">
+                :data-list-slug="list_slug || 'default-slug'">
             </script>
         </div>
     </div>

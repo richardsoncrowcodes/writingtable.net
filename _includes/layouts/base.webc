@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <site-seo webc:if="metadata" :@metadata="metadata"></site-seo>
-    <style @raw="getBundle('css')" webc:keep></style>
-    <style @raw="faStyles" webc:keep></style>
+    <title @raw="title || metadata?.title"></title>
+<meta name="title" :content="title || metadata?.title">
+<meta name="description" :content="description || metadata?.description">
+<meta name="generator" :content="eleventy?.generator">
+
+<meta property="og:type" content="website">
+<meta property="og:url" :content="`${metadata?.url || ''}${page?.url || ''}`">
+<meta property="og:title" :content="title || metadata?.title">
+<meta property="og:description" :content="description || metadata?.description">
+<meta property="og:image" :content="image || metadata?.image">
+<meta property="og:site_name" :content="metadata?.title">
+<meta property="og:locale" :content="metadata?.locale" webc:if="metadata?.locale">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" :content="`${metadata?.url || ''}${page?.url || ''}`">
+<meta name="twitter:title" :content="title || metadata?.title">
+<meta name="twitter:description" :content="description || metadata?.description">
+<meta name="twitter:image" :content="image || metadata?.image">
+<meta name="twitter:site" :content="metadata?.metasocial?.tweet" webc:if="metadata?.metasocial?.tweet">
+
+<link rel="canonical" :href="canonical_url || `${metadata?.url || ''}${page?.url || ''}`">
+<link webc:if="metadata?.favicon" rel="icon" type="image/x-icon" :href="metadata.favicon">
+<link webc:if="metadata?.favicon" rel="apple-touch-icon" :href="metadata.favicon">
+<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" :title="metadata?.title">
+
+<script type="application/ld+json" webc:keep
+    @raw="JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': metadata?.title || '',
+        'headline': title || metadata?.title,
+        'description': description || metadata?.description || '',
+        'url': `${metadata?.url || ''}${page?.url || ''}`,
+        'author': {
+            '@type': 'Person',
+            'name': metadata?.author?.name || ''
+        }
+    })">
+</script>
+<style @raw="faStyles" webc:keep></style>
+<style @raw="getBundle('css')" webc:keep></style>
+<link rel="stylesheet" href="/assets/css/index.css" webc:keep>
+<link rel="stylesheet" href="/assets/css/main.css" webc:keep>
+<noscript>
+<link rel="stylesheet" href="/assets/css/index.css">
+</noscript>
+<link rel="preconnect" href="https://forms.aweber.com">
+<link rel="preconnect" href="https://bookshop.org">
 </head>
 <body>
 <site-nav webc:if="navbar" :@navdata="navbar"></site-nav>
@@ -29,8 +74,20 @@
     :@formspree_id="modal?.formspree_id"
     :@buttons="modal?.button">
 </modal-section>
-<script src="/assets/js/bs.js" webc:keep></script>
-<script src="/assets/js/modal.js" webc:keep></script>
+<script src="/assets/js/bs.js" defer webc:keep></script>
+<script src="/assets/js/modal.js" defer webc:keep></script>
 <script @raw="getBundle('js')" webc:keep></script>
+<script webc:keep>
+  // Fix: Force title to third-party iframes
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('iframe').forEach(frame => {
+        if (!frame.title) {
+          frame.title = "Subscription Form or External Widget";
+        }
+      });
+    }, 2000);
+  });
+</script>
 </body>
 </html>

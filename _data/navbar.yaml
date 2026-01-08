@@ -12,3 +12,10 @@ nav:
      url: "#wedo"
    - title: FreeWrite Fridays
      url: "#write"
+actions:
+   - title: Monthly
+     url: "https://store.eileencampbellreed.org/product/writing-table-monthly-membership/"
+     color: "#71b5c3"
+   - title: Annual
+     url: "https://store.eileencampbellreed.org/product/writing-table-annual-membership/"
+     color: "#b95185"

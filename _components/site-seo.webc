@@ -1,46 +1,42 @@
-<title @raw="title || metadata.title"></title>
+<title @raw="title || metadata?.title"></title>
+<meta name="title" :content="title || metadata?.title">
+<meta name="description" :content="description || metadata?.description">
+<meta name="generator" :content="eleventy?.generator">
 
-<meta :content="title || metadata.title" property="og:title">
-<meta :content="title || metadata.title" name="twitter:title">
-<meta :content="title || metadata.title" name="title">
-<meta :content="title || metadata.title" property="og:site_name">
-
-<meta :content="description || metadata.description" name="description">
-<meta :content="description || metadata.description" property="facebook:description">
-<meta :content="description || metadata.description" property="og:description">
-<meta :content="description || metadata.description" name="twitter:description">
-
-<meta property="twitter:card" content="summary_large_image">
-<meta :content="image || metadata.image" name="twitter:image">
-<meta :content="image || metadata.image" name="facebook:image">
-<meta :content="image || metadata.image" name="og:image">
-
-<link :href="metadata.favicon" rel="icon" type="image/x-icon">
-<link rel="apple-touch-icon" :href="metadata.favicon">
-
-<meta :content="metadata.facebook" property="facebook:author">
-<meta :content="metadata.twitteruser" property="twitter:author">
-<meta :content="metadata.twitter" name="twitter:site">
 <meta property="og:type" content="website">
+<meta property="og:url" :content="`${metadata?.url || ''}${page?.url || ''}`">
+<meta property="og:title" :content="title || metadata?.title">
+<meta property="og:description" :content="description || metadata?.description">
+<meta property="og:image" :content="image || metadata?.image">
+<meta property="og:site_name" :content="metadata?.title">
+<meta property="og:locale" :content="metadata?.locale" webc:if="metadata?.locale">
 
-<link rel="canonical" :href="canonical_url || (metadata.url + page.url)">
-<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" :title="metadata.title">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" :content="`${metadata?.url || ''}${page?.url || ''}`">
+<meta name="twitter:title" :content="title || metadata?.title">
+<meta name="twitter:description" :content="description || metadata?.description">
+<meta name="twitter:image" :content="image || metadata?.image">
+<meta name="twitter:site" :content="metadata?.metasocial?.tweet" webc:if="metadata?.metasocial?.tweet">
 
-<meta :content="metadata.language" name="language">
-<meta :content="metadata.locale" name="locale">
-<meta :content="metadata.locale" property="og:locale">
+<link rel="canonical" :href="canonical_url || `${metadata?.url || ''}${page?.url || ''}`">
+<link webc:if="metadata?.favicon" rel="icon" type="image/x-icon" :href="metadata.favicon">
+<link webc:if="metadata?.favicon" rel="apple-touch-icon" :href="metadata.favicon">
+<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" :title="metadata?.title">
 
-<meta name="generator" :content="eleventy.generator">
-
-<script type="application/ld+json" webc:keep 
+<script type="application/ld+json" webc:keep
     @raw="JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        'description': metadata.description,
-        'headline': metadata.title + ' - ' + metadata.description,
-        'name': metadata.title,
-        'url': metadata.url + page.url
+        'name': metadata?.title || '',
+        'headline': title || metadata?.title,
+        'description': description || metadata?.description || '',
+        'url': `${metadata?.url || ''}${page?.url || ''}`,
+        'author': {
+            '@type': 'Person',
+            'name': metadata?.author?.name || ''
+        }
     })">
 </script>
+
 <link rel="stylesheet" href="/assets/css/index.css" webc:keep>
 <link rel="stylesheet" href="/assets/css/main.css" webc:keep>

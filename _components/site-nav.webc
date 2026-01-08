@@ -2,11 +2,11 @@
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="/" :aria-label="navdata.nav.title + ' Home'">
             <img webc:if="navdata.nav.logo" 
-          img :src="navdata.nav.logo" 
+                 :src="navdata.nav.logo" 
                  :alt="navdata.nav.title" 
                  height="40" 
+                 width="40"
                  class="d-inline-block me-2">
-            
             <span @raw="navdata.nav.title"></span>
         </a>
         
@@ -15,11 +15,47 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item" webc:for="link of navdata.nav.item">
                     <a class="nav-link" :href="link.url" @raw="link.title"></a>
+                </li>
+
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <div class="d-flex flex-column flex-lg-row gap-2">
+                        <a :href="navdata.actions[0].url" 
+                           class="btn btn-sm px-3 text-white" 
+                           :style="`background-color: ${navdata.actions[0].color} 
+                           !important;`"
+                           @raw="navdata.actions[0].title"
+                           webc:keep></a>
+                        
+                        <a :href="navdata.actions[1].url" 
+                           class="btn btn-sm px-3 border-0 text-white" 
+                           :style="`background-color: ${navdata.actions[1].color} !important;`"
+                           @raw="navdata.actions[1].title"
+                           webc:keep></a>
+                    </div>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<style webc:scoped>
+    .btn-sm a{ color:white;}
+    .btn-sm {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        color: white;
+    }
+
+    @media (max-width: 991.98px) {
+        .nav-item {
+            padding: 5px 0;
+        }
+        .btn-sm {
+            width: 100%;
+        }
+    }
+</style>

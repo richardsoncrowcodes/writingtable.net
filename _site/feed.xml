@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="/pretty-feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>The Writing Table</title>
+  <subtitle>Enhance your writing practice through writing in communion</subtitle>
+  <link href="http://localhost:8080feed.xml" rel="self"/>
+  <link href="http://localhost:8080"/>
+  <updated>2026-01-08T01:36:54Z</updated>
+  <id>http://localhost:8080</id>
+  <author>
+    <name>Eileen Campbell-Reed</name>
+    <email>hello@eileencampbellreed.org</email>
+  </author>
+</feed>

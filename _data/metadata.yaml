@@ -5,7 +5,7 @@ language: en
 locale: en_US
 image: /assets/img/joins.webp
 favicon: /assets/img/joins.webp
-url: /
+url: http://localhost:8080
 
 metasocial:
   facebook: https://www.facebook.com/

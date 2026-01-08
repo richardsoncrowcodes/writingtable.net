@@ -1,34 +1,62 @@
-<div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="welcomeModal" tabindex="-1" aria-hidden="true" webc:root="override">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-            <div class="modal-header border-0">
+            <div class="modal-header border-0 pb-0">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body p-4">
-                <h2 class="display-6 mb-4">Welcome to The Writing Table!</h2>
-                <p class="lead">Join our community of writers building solid writing habits together.</p>
-                </div>
+            <div class="modal-body p-4 p-md-5">
+                <h2 class="display-6 fw-bold mb-4">Welcome to The Writing Table!</h2>
+                <p class="lead text-muted">Join our community of writers building solid writing habits together.</p>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-class WelcomeModal extends HTMLElement {
-    connectedCallback() {
-        const modalDismissTime = 'welcomeModalDismissTime';
-        const fiveDaysInMs = 5 * 24 * 60 * 60 * 1000;
-        const lastDismissed = localStorage.getItem(modalDismissTime);
-        const now = new Date().getTime();
+if (!customElements.get("welcome-modal")) {
+    class WelcomeModal extends HTMLElement {
+        connectedCallback() {
+            // Pastikan Bootstrap sudah siap
+            if (typeof bootstrap === 'undefined') {
+                console.warn('WelcomeModal: Bootstrap JS is required but not loaded.');
+                return;
+            }
 
-        if (!lastDismissed || (now - parseInt(lastDismissed)) > fiveDaysInMs) {
-            const myModal = new bootstrap.Modal(document.getElementById('welcomeModal'));
-            myModal.show();
+            const modalId = 'welcomeModal';
+            const modalDismissTime = 'welcomeModalDismissTime';
+            const fiveDaysInMs = 5 * 24 * 60 * 60 * 1000;
+            const lastDismissed = localStorage.getItem(modalDismissTime);
+            const now = Date.now();
+
+            // Logika pengecekan interval 5 hari
+            if (!lastDismissed || (now - parseInt(lastDismissed)) > fiveDaysInMs) {
+                const modalElement = document.getElementById(modalId);
+                if (modalElement) {
+                    const myModal = new bootstrap.Modal(modalElement);
+                    myModal.show();
+
+                    // Event listener saat modal ditutup
+                    modalElement.addEventListener('hidden.bs.modal', () => {
+                        localStorage.setItem(modalDismissTime, Date.now().toString());
+                    });
+                }
+            }
         }
-
-        document.getElementById('welcomeModal').addEventListener('hidden.bs.modal', () => {
-            localStorage.setItem(modalDismissTime, new Date().getTime().toString());
-        });
     }
+    customElements.define("welcome-modal", WelcomeModal);
 }
-customElements.define("welcome-modal", WelcomeModal);
 </script>
+
+<style webc:scoped>
+    .modal-content {
+        border-radius: 24px;
+        border: none;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+    .btn-close {
+        padding: 1.2rem;
+        background-color: #f8f9fa;
+        border-radius: 50%;
+        opacity: 0.8;
+    }
+</style>
