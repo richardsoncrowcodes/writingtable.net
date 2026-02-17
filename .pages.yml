@@ -1,0 +1,600 @@
+---
+# Pages CMS Configuration for writingtable.net
+# This file enables content editing via app.pagescms.org
+# All changes are committed to GitHub and trigger automatic site rebuilds
+
+site:
+  name: The Writing Table
+  description: Enhance your writing practice through writing in communion
+
+media:
+  - name: assets
+    label: Site Assets
+    input: content/assets
+    output: /assets
+    categories:
+      - image
+      - video
+
+content:
+  # Site-wide configuration
+  - name: metadata
+    label: Site Settings
+    type: file
+    path: _data/metadata.yaml
+    fields:
+      - name: title
+        label: Site Title
+        type: string
+        required: true
+      - name: description
+        label: Site Description
+        type: text
+        required: true
+      - name: language
+        label: Language Code
+        type: string
+        value: en
+      - name: locale
+        label: Locale
+        type: string
+        value: en_US
+      - name: image
+        label: Site Image
+        type: image
+      - name: favicon
+        label: Favicon
+        type: image
+      - name: url
+        label: Website URL
+        type: string
+      - name: metasocial
+        label: Social Links
+        type: object
+        fields:
+          - name: facebook
+            label: Facebook URL
+            type: string
+          - name: twitter
+            label: Twitter URL
+            type: string
+          - name: tweet
+            label: Twitter Handle
+            type: string
+      - name: author
+        label: Author Information
+        type: object
+        fields:
+          - name: name
+            label: Author Name
+            type: string
+            required: true
+          - name: email
+            label: Author Email
+            type: string
+
+  # Navigation configuration
+  - name: navbar
+    label: Navigation & Header
+    type: file
+    path: _data/navbar.yaml
+    fields:
+      - name: nav
+        label: Navigation Menu
+        type: object
+        fields:
+          - name: title
+            label: Site Title in Nav
+            type: string
+          - name: logo
+            label: Logo Image
+            type: image
+          - name: item
+            label: Navigation Items
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Link Text
+                type: string
+                required: true
+              - name: url
+                label: Link URL / Anchor
+                type: string
+                required: true
+      - name: actions
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Button Text
+            type: string
+            required: true
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+
+  # Hero section
+  - name: hero
+    label: Hero Section
+    type: file
+    path: _data/hero.yaml
+    fields:
+      - name: title
+        label: Main Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: hero
+      - name: subtitle
+        label: Subtitle
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: history
+        label: Background/History
+        type: rich-text
+      - name: bg_color
+        label: Background Color (Hex)
+        type: string
+      - name: image
+        label: Hero Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # Hosts section
+  - name: hosts
+    label: Meet Your Hosts
+    type: file
+    path: _data/hosts.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: hosts
+      - name: color
+        label: Color Theme
+        type: string
+        value: default
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+      - name: list
+        label: Host Profiles
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: Role/Title
+            type: string
+            required: true
+          - name: name
+            label: Full Name
+            type: string
+            required: true
+          - name: image
+            label: Profile Image
+            type: image
+          - name: image_on_left
+            label: Image Position (Left)
+            type: boolean
+          - name: description
+            label: Bio
+            type: rich-text
+
+  # Support/Coaching section
+  - name: support
+    label: Support & Coaching Section
+    type: file
+    path: _data/support.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: support
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: image
+        label: Section Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: article
+        label: Article Content
+        type: rich-text
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # Who section
+  - name: who
+    label: Who Is It For?
+    type: file
+    path: _data/who.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: who
+      - name: color
+        label: Background Color
+        type: string
+      - name: image
+        label: Section Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: text
+        label: Section Content
+        type: rich-text
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # What We Do section
+  - name: what_we_do
+    label: What We Do Section
+    type: file
+    path: _data/what_we_do.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: wedo
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: image
+        label: Section Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: text
+        label: Section Content
+        type: rich-text
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # FreeWrite Fridays section
+  - name: free_write
+    label: FreeWrite Fridays Section
+    type: file
+    path: _data/free_write.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: write
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: text
+        label: Section Content
+        type: rich-text
+      - name: image
+        label: Section Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # Bookshelf section
+  - name: bookshelf
+    label: Bookshelf Section
+    type: file
+    path: _data/bookshelf.yaml
+    fields:
+      - name: id
+        label: Section ID
+        type: string
+        value: bookshelf
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: subtitle
+        label: Section Subtitle
+        type: text
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: list_slug
+        label: List Slug (for linking)
+        type: string
+
+  # Help section
+  - name: help
+    label: How Will It Help Me?
+    type: file
+    path: _data/help.yaml
+    fields:
+      - name: title
+        label: Section Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: help
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: text
+        label: Section Content
+        type: rich-text
+      - name: image
+        label: Section Image
+        type: image
+      - name: image_on_left
+        label: Image Position (Left)
+        type: boolean
+      - name: button
+        label: Call-to-Action Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # Footer section
+  - name: footer
+    label: Footer
+    type: file
+    path: _data/footer.yaml
+    fields:
+      - name: title
+        label: Footer Title
+        type: string
+        required: true
+      - name: id
+        label: Section ID
+        type: string
+        value: footer
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: text
+        label: Footer Description
+        type: text
+      - name: contact
+        label: Contact Section
+        type: object
+        fields:
+          - name: title
+            label: Contact Heading
+            type: string
+          - name: list
+            label: Contact Information
+            type: object
+            list: true
+            fields:
+              - name: title
+                label: Type (e.g., email)
+                type: string
+              - name: url
+                label: Link (mailto/tel)
+                type: string
+              - name: text
+                label: Display Text
+                type: string
+      - name: socials
+        label: Social Links
+        type: object
+        fields:
+          - name: title
+            label: Socials Heading
+            type: string
+          - name: list
+            label: Social Links
+            type: object
+            list: true
+            fields:
+              - name: icon
+                label: FontAwesome Icon Class
+                type: string
+              - name: url
+                label: Social URL
+                type: string
+                required: true
+              - name: title
+                label: Platform Name
+                type: string
+                required: true
+
+  # Welcome Modal
+  - name: modal
+    label: Welcome Modal
+    type: file
+    path: _data/modal.yaml
+    fields:
+      - name: title
+        label: Modal Title
+        type: string
+        required: true
+      - name: id
+        label: Modal ID
+        type: string
+        value: welcomeModal
+      - name: subtitle
+        label: Modal Subtitle
+        type: string
+      - name: text
+        label: Modal Content
+        type: text
+      - name: color
+        label: Background Color (Hex)
+        type: string
+      - name: button_text
+        label: Primary Button Text
+        type: string
+      - name: formspree_id
+        label: Formspree Form ID (for sign-ups)
+        type: string
+      - name: button
+        label: Additional Buttons
+        type: object
+        list: true
+        fields:
+          - name: text
+            label: Button Text
+            type: string
+            required: true
+          - name: color
+            label: Button Color (Hex)
+            type: string
+          - name: url
+            label: Button URL
+            type: string
+            required: true
+
+  # Signup form section
+  - name: form
+    label: Signup Form Section
+    type: file
+    path: _data/form.yaml
+    fields:
+      - name: id
+        label: Form ID
+        type: string
+        value: signup
+      - name: title
+        label: Form Title
+        type: string
+        required: true
+      - name: subtitle
+        label: Form Subtitle
+        type: text
+      - name: color
+        label: Background Color (Hex)
+        type: string
