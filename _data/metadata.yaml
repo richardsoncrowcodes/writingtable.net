@@ -1,18 +1,14 @@
-title: "The Writing Table"
-description: "Enhance your writing practice through writing in communion"
-
+title: The Writing Table
+description: Enhance your writing practice through writing in communion
 language: en
 locale: en_US
 image: /assets/img/joins.webp
 favicon: /assets/img/joins.webp
-url: http://localhost:8080
-
+url: http://writingtable.xmit.dev/
 metasocial:
-  facebook: https://www.facebook.com/
-  twitter: https://twitter.com/
-  tweet: "@user"
-
+  facebook: https://www.facebook.com/3MinuteMin/
+  twitter: https://x.com/3MinuteMin
+  tweet: "@3MinuteMin"
 author:
-  name: "Eileen Campbell-Reed"
-  email: "hello@eileencampbellreed.org"
-
+  name: Eileen Campbell-Reed
+  email: hello@eileencampbellreed.org
